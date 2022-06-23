@@ -1,0 +1,41 @@
+@import '../../../style/vars.less';
+
+.top-profile {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 25vh;
+
+  .avatar-upload {
+    position: absolute;
+    left: 5%;
+    bottom: -30px;
+
+    .ant-upload-select.ant-upload-select-picture-card {
+      background-image: url('/no-avatar.png');
+    }
+  }
+
+  .cover-upload {
+    float: right;
+    margin-top: 5px;
+
+    .ant-upload-select.ant-upload-select-picture-card {
+      border-radius: 0;
+      border: 0;
+      border-radius: 3px;
+      border: 0;
+      background: @secondary-color;
+      width: auto;
+      height: auto;
+      padding: 5px 15px;
+
+      .ant-upload {
+        color: @white;
+      }
+    }
+  }
+
+  @media screen and (max-width: @tablet-screen) {
+    height: 18vh;
+  }
+}

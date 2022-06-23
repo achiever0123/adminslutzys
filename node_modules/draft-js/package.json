@@ -1,0 +1,125 @@
+{
+  "name": "draft-js",
+  "description": "A React framework for building text editors.",
+  "version": "0.11.5",
+  "keywords": [
+    "draftjs",
+    "editor",
+    "react",
+    "richtext"
+  ],
+  "homepage": "http://draftjs.org/",
+  "bugs": "https://github.com/facebook/draft-js/issues",
+  "files": [
+    "dist/",
+    "lib/",
+    "LICENSE"
+  ],
+  "main": "lib/Draft.js",
+  "style": "dist/Draft.css",
+  "repository": "facebook/draft-js",
+  "license": "MIT",
+  "scripts": {
+    "prepublish": "npm run build",
+    "pretest": "node node_modules/fbjs-scripts/node/check-dev-engines.js package.json",
+    "build": "gulp",
+    "dev": "gulp dev",
+    "postbuild": "node node_modules/fbjs-scripts/node/check-lib-requires.js lib",
+    "lint": "eslint .",
+    "lint-docs": "alex . && yarn format-docs:diff",
+    "format": "eslint . --fix",
+    "format-docs": "prettier --config prettier.config.js --write \"docs/**/*.md\"",
+    "format-docs:diff": "prettier --config prettier.config.js --list-different \"docs/**/*.md\"",
+    "flow": "flow src",
+    "test": "cross-env NODE_ENV=test jest",
+    "test-ci": "cross-env NODE_ENV=test npm run lint && npm run flow && npm run test"
+  },
+  "dependencies": {
+    "fbjs": "^1.0.0",
+    "immutable": "~3.7.4",
+    "object-assign": "^4.1.1"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0-rc || ^16.0.0-rc || ^16.0.0",
+    "react-dom": "^0.14.0 || ^15.0.0-rc || ^16.0.0-rc || ^16.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.4.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.9.0",
+    "alex": "^8.0.0",
+    "babel-eslint": "^10.0.3",
+    "babel-preset-fbjs": "^3.3.0",
+    "cross-env": "^6.0.3",
+    "del": "^5.1.0",
+    "es6-shim": "^0.35.5",
+    "eslint": "^6.8.0",
+    "eslint-config-fbjs": "^3.1.1",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-flowtype": "^4.6.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.17.0",
+    "fbjs-scripts": "^1.2.0",
+    "flow-bin": "^0.115.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-concat-css": "^3.1.0",
+    "gulp-derequire": "^2.1.0",
+    "gulp-flatten": "^0.4.0",
+    "gulp-header": "^2.0.9",
+    "gulp-if": "^3.0.0",
+    "gulp-rename": "2",
+    "gulp-util": "^3.0.6",
+    "jest": "^24.9.0",
+    "prettier": "1.19.1",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "react-test-renderer": "^16.0.0",
+    "stats-webpack-plugin": "^0.6.2",
+    "through2": "^3.0.1",
+    "uglifyjs-webpack-plugin": "2",
+    "webpack-stream": "5.2.1"
+  },
+  "devEngines": {
+    "node": "10.x || 12.x || 13.x",
+    "npm": "2.x || 3.x || 5.x || 6.x"
+  },
+  "jest": {
+    "globals": {
+      "__DEV__": true
+    },
+    "rootDir": "./",
+    "roots": [
+      "<rootDir>/src/"
+    ],
+    "setupFiles": [
+      "<rootDir>/scripts/jest/shims.js"
+    ],
+    "transform": {
+      ".*": "<rootDir>/scripts/jest/preprocessor.js"
+    },
+    "haste": {
+      "hasteImplModulePath": "<rootDir>/scripts/jest/hasteImpl.js"
+    },
+    "modulePathIgnorePatterns": [
+      "<rootDir>/lib/",
+      "<rootDir>/node_modules/"
+    ],
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ],
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/fbjs/node_modules/",
+      "<rootDir>/node_modules/fbjs/lib/UserAgent.js",
+      "<rootDir>/node_modules/fbjs/lib/UserAgentData.js",
+      "<rootDir>/node_modules/fbjs-scripts/",
+      "<rootDir>/node_modules/immutable/",
+      "<rootDir>/node_modules/object-assign/",
+      "<rootDir>/node_modules/react/",
+      "<rootDir>/node_modules/react-dom/"
+    ]
+  }
+}

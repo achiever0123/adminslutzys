@@ -1,0 +1,1 @@
+{"ast":null,"code":"export default (({\n  children\n}) => children);","map":{"version":3,"sources":["/Volumes/Chorus/__Code Source/Slutzys/creator site/admin/src/layouts/public-layout.tsx"],"names":["children"],"mappings":"AAAA,gBAAe,CAAC;AAAEA,EAAAA;AAAF,CAAD,KAAkBA,QAAjC","sourcesContent":["export default ({ children }) => children;\n"]},"metadata":{},"sourceType":"module"}
